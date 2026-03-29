@@ -27,14 +27,12 @@ STM32_CAN_Adapter/
 |------|-------------------|--------------------------------|
 | PA9  | USART1 TX         | To USB-UART adapter RX         |
 | PA10 | USART1 RX         | To USB-UART adapter TX         |
-| PB8  | CAN RX            | CAN remap 2 (`AFIO_MAPR`)     |
-| PB9  | CAN TX            | To CAN transceiver (e.g. TJA1050) |
+| PB8  | CAN RX            | To CAN transceiver    |
+| PB9  | CAN TX            | To CAN transceiver |
 | PB0  | LED – RX activity | Blinks on every received frame |
 | PB1  | LED – TX activity | Blinks on every transmitted frame |
 | PA13 | SWD IO            | Debug / programming            |
 | PA14 | SWD CLK           | Debug / programming            |
-
-> **CAN transceiver required.** Connect a TJA1050 or equivalent between PB8/PB9 and the CAN bus. Do **not** connect PB8/PB9 directly to the bus.
 
 **CAN bus parameters:** 500 kbps — APB1 = 36 MHz, Prescaler = 12, BS1 = 2 TQ, BS2 = 3 TQ, SJW = 1 TQ
 
@@ -107,23 +105,9 @@ A dark-themed desktop application built with **Python 3 + Tkinter**.
 - Column sorting on the RX table (hex-aware for CAN ID column).
 - Right-click on any RX row to copy ID/data or load it into the TX panel.
 
-### Requirements
+<img width="1282" height="852" alt="image" src="https://github.com/user-attachments/assets/23d8a063-945d-4d6f-8d31-313872e7ba16" />
 
-```
-pip install pyserial
-```
-
-Python ≥ 3.10 (uses `|` union type hints in annotations).
-
-### Run
-
-```bash
-python GUI/can_adapter_gui.py
-```
-
-Select the correct COM port and baud rate (default **115200**), then click **Connect**.
-
----
+<img width="1282" height="852" alt="image" src="https://github.com/user-attachments/assets/ebbc424e-11f6-4849-9ead-b3b660dc7aa1" />
 
 ## LED Indicators
 
@@ -136,6 +120,3 @@ LEDs are driven by a tick-based mechanism in the main loop — no blocking delay
 
 ---
 
-## License
-
-MIT — see `LICENSE` for details.
